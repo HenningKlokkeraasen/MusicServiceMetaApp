@@ -1,0 +1,26 @@
+﻿@using MusicServiceMetaApp.Web.Models.Spotify
+@model Tracklist
+           
+<table>
+    <thead>
+        <tr>
+            <th>Track</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Track t in Model.Items)
+        {
+            <tr>
+                <td>@t.TrackNumber</td>
+                <td>@Html.ActionLink(t.Name, "Track", new {@id = t.Id})</td>
+                <td>
+                    @{ Html.RenderPartial("DisplayTemplates/Artists", t.Artists); }
+                </td>
+                <td>@t.Duration ms</td>
+            </tr>
+        }
+    </tbody>
+</table>

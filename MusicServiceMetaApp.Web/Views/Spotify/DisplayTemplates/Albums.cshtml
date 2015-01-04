@@ -1,0 +1,16 @@
+﻿@using MusicServiceMetaApp.Web.Models.Spotify
+@model IEnumerable<Album>
+
+<div class="artistAlbumContainer">
+    @foreach (Album a in Model)
+    {
+        <div>
+            <a href="/Spotify/Album/@a.Id">
+                <img src="@a.Images.ToArray()[1].Url" alt=""/>
+                <br/>
+                @a.Name
+            </a>
+        </div>
+    }
+</div>
+<div class="clear"></div>

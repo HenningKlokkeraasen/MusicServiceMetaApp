@@ -1,0 +1,22 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Spotify";
+}
+
+<h2>Albums</h2>
+<ul>
+    <li>@Html.ActionLink("Bauta - En hyllest til Bjørn Eidsvåg", "Album", new { @id = "1cj2bGhHCxMdx3wNr9u5OF" }, null)</li>
+</ul>
+
+<h2>Artists</h2>
+<ul>
+    <li>@Html.ActionLink("Band of Horses", "Artist", new { @id = "0OdUWJ0sBjDrqHygGUXeCF" }, null)</li>
+    <li>@Html.ActionLink("Calexico", "Artist", new { @id = "1OmdWpAh1pucAuZPzJaxIJ" }, null)</li>
+    <li>@Html.ActionLink("Kaizers Orchestra", "Artist", new { @id = "1s1DnVoBDfp3jxjjew8cBR" }, null)</li>
+</ul>
+
+<h2>Users</h2>
+<ul>
+    <li>@Html.ActionLink("Wizzler", "User", new { @id = "wizzler" })</li>
+</ul>

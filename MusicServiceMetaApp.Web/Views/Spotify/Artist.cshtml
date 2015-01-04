@@ -1,0 +1,18 @@
+﻿@model MusicServiceMetaApp.Web.Models.Spotify.ArtistViewModel
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>@Model.Artist.Name</h2>
+
+<img src="@Model.Artist.Images.ToArray()[2].Url" alt="" />
+
+<h3>Albums</h3>
+@{ Html.RenderPartial("DisplayTemplates/Albums", Model.Albums); }
+<h3>Singles</h3>
+@{ Html.RenderPartial("DisplayTemplates/Albums", Model.Singles); }
+<h3>Appears On</h3>
+@{ Html.RenderPartial("DisplayTemplates/Albums", Model.AppearsOn); }
+<h3>Compilations</h3>
+@{ Html.RenderPartial("DisplayTemplates/Albums", Model.Compilations); }

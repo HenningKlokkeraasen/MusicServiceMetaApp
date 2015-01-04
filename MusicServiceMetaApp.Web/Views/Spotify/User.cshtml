@@ -1,0 +1,12 @@
+﻿@model MusicServiceMetaApp.Web.Models.Spotify.User
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>@Model.DisplayName</h2>
+
+@if (Model.Images.Any())
+{
+    <img src="@Model.Images.FirstOrDefault().Url" alt=""/>
+}

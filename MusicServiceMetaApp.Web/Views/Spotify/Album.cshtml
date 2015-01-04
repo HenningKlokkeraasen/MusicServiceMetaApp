@@ -1,0 +1,15 @@
+﻿@model MusicServiceMetaApp.Web.Models.Spotify.Album
+
+@{
+    ViewBag.Title = "";
+}
+
+<h1>@Model.Name</h1>
+
+<p>By @{ Html.RenderPartial("DisplayTemplates/Artists", Model.Artists); } </p>
+
+<p>@Html.DisplayFor(m => m.ReleaseDate)</p>
+
+<img src="@Model.Images.ToArray()[1].Url" alt="" />
+
+@{ Html.RenderPartial("DisplayTemplates/Tracklist", Model.Tracks); }

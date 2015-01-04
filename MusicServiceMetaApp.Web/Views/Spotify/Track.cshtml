@@ -1,0 +1,22 @@
+﻿@model MusicServiceMetaApp.Web.Models.Spotify.Track
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>@Model.Name</h2>
+
+<audio src="@Model.PreviewUrl" controls></audio>
+
+<p>Duration: @Model.Duration ms</p>
+
+<p>By @{ Html.RenderPartial("DisplayTemplates/Artists", Model.Artists); } </p>
+
+<p>
+    From album:<br />
+    <a href="/Spotify/Album/@Model.Album.Id">
+        <img src="@Model.Album.Images.ToArray()[1].Url" alt="" />
+        <br/>
+        @Model.Album.Name
+    </a>	
+</p>

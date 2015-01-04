@@ -1,0 +1,15 @@
+﻿@using MusicServiceMetaApp.Web.Models.Spotify
+@model IEnumerable<Artist>
+
+@{ int counter = Model.Count(); }
+@foreach (Artist a in Model.ToArray())
+{
+    @Html.ActionLink(a.Name, "Artist", new { @id = a.Id })
+    {
+        if (counter > 1)
+        {
+            @:,
+        }
+        counter--;
+    }
+}
