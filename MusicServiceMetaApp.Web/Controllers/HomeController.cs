@@ -1,5 +1,4 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Web.Mvc;
 
 namespace MusicServiceMetaApp.Web.Controllers
@@ -8,10 +7,7 @@ namespace MusicServiceMetaApp.Web.Controllers
     {
         public ActionResult Index()
         {
-            string setting = Environment.GetEnvironmentVariable("MSMA.TestKey");
-            if (string.IsNullOrEmpty(setting))
-                setting = ConfigurationManager.AppSettings["MSMA.TestKey"];
-            ViewBag.ConfigValue = setting;
+            ViewBag.ConfigValue = ConfigurationManager.AppSettings["MSMA.TestKey"];
 
             return View();
         }
