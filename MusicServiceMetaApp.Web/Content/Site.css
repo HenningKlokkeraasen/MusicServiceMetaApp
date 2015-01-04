@@ -26,13 +26,17 @@ textarea {
 /* Project Specific */
 
 .artistAlbumContainer {
-	background-color: red;
+	
 }
 
-.artistAlbumContainer > div {
-	float: left;
-	max-width: 304px;
-}
+    .artistAlbumContainer > div {
+	    float: left;
+	    max-width: 164px;
+    }
+
+        .artistAlbumContainer > div > a > img {
+            max-width: 160px;
+        }
 
 .clear {
 	clear: both;

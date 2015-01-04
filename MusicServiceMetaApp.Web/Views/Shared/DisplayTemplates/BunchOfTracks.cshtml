@@ -1,6 +1,10 @@
-﻿@using MusicServiceMetaApp.Web.Models.Spotify
+﻿@using Msma.Domain.Models
 @model Tracklist
-           
+
+@{
+    var source = ViewBag.Source;
+}
+       
 <table>
     <thead>
         <tr>
@@ -15,11 +19,11 @@
         {
             <tr>
                 <td>@t.TrackNumber</td>
-                <td>@Html.ActionLink(t.Name, "Track", new {@id = t.Id})</td>
+                <td><a href="/@source/Track/@t.Id">@t.Name</a></td>
                 <td>
-                    @{ Html.RenderPartial("DisplayTemplates/Artists", t.Artists); }
+                    @{ Html.RenderPartial("DisplayTemplates/BunchOfArtists", t.Artists); }
                 </td>
-                <td>@t.Duration ms</td>
+                <td>@t.DurationInSeconds seconds</td>
             </tr>
         }
     </tbody>

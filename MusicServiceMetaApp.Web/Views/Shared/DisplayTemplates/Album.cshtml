@@ -1,0 +1,12 @@
+﻿@model Msma.Domain.Dtos.AlbumDto
+
+<h1>@Model.Album.Name</h1>
+
+<p>By @{ Html.RenderPartial("DisplayTemplates/BunchOfArtists", Model.Album.Artists); } </p>
+
+<p>@Html.DisplayFor(m => m.Album.ReleaseDate)</p>
+
+<img src="@Model.Album.ImageUrl" alt="" />
+
+@{ Html.RenderPartial("DisplayTemplates/BunchOfTracks", Model.Tracks); }
+

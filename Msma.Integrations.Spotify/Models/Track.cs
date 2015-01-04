@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MusicServiceMetaApp.Web.Models.Spotify
+namespace Msma.Integrations.Spotify.Models
 {
     [DataContract]
     public class Track
@@ -26,5 +27,10 @@ namespace MusicServiceMetaApp.Web.Models.Spotify
 
         [DataMember]
         public Album Album { get; set; }
+
+        public int DurationInSeconds 
+        {
+            get { return (int)Math.Round(Duration/100d); }
+        }
     }
 }

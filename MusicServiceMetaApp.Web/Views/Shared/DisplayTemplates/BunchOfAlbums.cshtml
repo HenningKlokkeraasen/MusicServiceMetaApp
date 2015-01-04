@@ -1,13 +1,17 @@
-﻿@using MusicServiceMetaApp.Web.Models.Spotify
+﻿@using Msma.Domain.Models
 @model IEnumerable<Album>
+
+@{
+    var source = ViewBag.Source;
+}
 
 <div class="artistAlbumContainer">
     @foreach (Album a in Model)
     {
         <div>
-            <a href="/Spotify/Album/@a.Id">
-                <img src="@a.Images.ToArray()[1].Url" alt=""/>
-                <br/>
+            <a href="/@source/Album/@a.Id">
+                <img src="@a.ImageUrl" alt="" />
+                <br />
                 @a.Name
             </a>
         </div>

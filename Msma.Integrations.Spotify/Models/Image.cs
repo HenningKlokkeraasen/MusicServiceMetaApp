@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace MusicServiceMetaApp.Web.Models.Spotify
+namespace Msma.Integrations.Spotify.Models
 {
     [DataContract]
     public class Image

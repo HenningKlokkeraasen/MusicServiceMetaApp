@@ -1,10 +1,14 @@
-﻿@using MusicServiceMetaApp.Web.Models.Spotify
+﻿@using Msma.Domain.Models
 @model IEnumerable<Artist>
+
+@{
+    var source = ViewBag.Source;
+}
 
 @{ int counter = Model.Count(); }
 @foreach (Artist a in Model.ToArray())
 {
-    @Html.ActionLink(a.Name, "Artist", new { @id = a.Id })
+    <a href="/@source/Artist/@a.Id">@a.Name</a>
     {
         if (counter > 1)
         {

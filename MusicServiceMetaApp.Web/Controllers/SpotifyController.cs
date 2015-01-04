@@ -1,13 +1,12 @@
-﻿using System.Net;
-using System.Text;
-using System.Web.Mvc;
-using MusicServiceMetaApp.Web.Models.Spotify;
-using Newtonsoft.Json;
+﻿using System.Web.Mvc;
+using MusicServiceMetaApp.Web.Orchestrators;
 
 namespace MusicServiceMetaApp.Web.Controllers
 {
     public class SpotifyController : Controller
     {
+        private readonly SpotifyOrchestrator _orchestrator = new SpotifyOrchestrator();
+
         public ActionResult Index()
         {
             return View();
@@ -18,21 +17,7 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            Artist artist = FetchSpotifyData<Artist>("https://api.spotify.com/v1/artists/" + id);
-
-            ArtistAlbumCollection albums = FetchSpotifyData<ArtistAlbumCollection>("https://api.spotify.com/v1/artists/" + id + "/albums?market=NO&album_type=album");
-            ArtistAlbumCollection singles = FetchSpotifyData<ArtistAlbumCollection>("https://api.spotify.com/v1/artists/" + id + "/albums?market=NO&album_type=single");
-            ArtistAlbumCollection appearsOn = FetchSpotifyData<ArtistAlbumCollection>("https://api.spotify.com/v1/artists/" + id + "/albums?market=NO&album_type=appears_on");
-            ArtistAlbumCollection compilations = FetchSpotifyData<ArtistAlbumCollection>("https://api.spotify.com/v1/artists/" + id + "/albums?market=NO&album_type=compilation");
-
-            ArtistViewModel viewModel = new ArtistViewModel
-            {
-                Artist = artist,
-                Albums = albums.Items,
-                Singles = singles.Items,
-                AppearsOn = appearsOn.Items,
-                Compilations = compilations.Items
-            };
+            var viewModel = _orchestrator.GetArtist(id);
             return View(viewModel);
         }
 
@@ -41,8 +26,8 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            Album album = FetchSpotifyData<Album>("https://api.spotify.com/v1/albums/" + id);
-            return View(album);
+            var viewModel = _orchestrator.GetAlbum(id);
+            return View(viewModel);
         }
 
         public ActionResult Track(string id)
@@ -50,12 +35,15 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            Track track = FetchSpotifyData<Track>("https://api.spotify.com/v1/tracks/" + id);
-            return View(track);
+            var trackDto = _orchestrator.GetTrack(id);
+            return View(trackDto);
         }
 
         public ActionResult Playlist(string id)
         {
+            if (string.IsNullOrEmpty(id))
+                return View("Error");
+
             return View();
         }
 
@@ -64,19 +52,9 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            User user = FetchSpotifyData<User>("https://api.spotify.com/v1/users/" + id);
-            return View(user);
+            var userDto = _orchestrator.GetUser(id);
+            return View(userDto);
         }
 
-        private static T FetchSpotifyData<T>(string url)
-        {
-            WebClient client = new WebClient
-            {
-                Encoding = Encoding.UTF8
-            };
-            string content = client.DownloadString(url);
-            T model = JsonConvert.DeserializeObject<T>(content);
-            return model;
-        }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
-namespace MusicServiceMetaApp.Web.Models.Spotify
+namespace Msma.Integrations.Spotify.Models
 {
     [DataContract]
     public class Album
@@ -23,5 +24,15 @@ namespace MusicServiceMetaApp.Web.Models.Spotify
 
         [DataMember]
         public Tracklist Tracks { get; set; }
+
+        public string ImageUrl
+        {
+            get
+            {
+                return Images != null && Images.Any()
+                    ? Images.ToArray()[1].Url
+                    : string.Empty;
+            }
+        }
     }
 }
