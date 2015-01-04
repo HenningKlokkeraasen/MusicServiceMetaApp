@@ -211,12 +211,12 @@
     <Content Include="Views\Shared\DisplayTemplates\Artist.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Album.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\User.cshtml" />
-    <None Include="Views\Wimp\Album.cshtml" />
-    <None Include="Views\Wimp\Artist.cshtml" />
+    <Content Include="Views\Wimp\Album.cshtml" />
+    <Content Include="Views\Wimp\Artist.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfAlbums.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfArtists.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfTracks.cshtml" />
-    <None Include="Views\Wimp\Index.cshtml" />
+    <Content Include="Views\Wimp\Index.cshtml" />
     <Content Include="Views\Wimp\Track.cshtml" />
     <Content Include="Views\Wimp\User.cshtml" />
     <Content Include="Views\Wimp\Playlist.cshtml" />
