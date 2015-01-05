@@ -44,6 +44,7 @@
     <Compile Include="Dtos\DtoBase.cs" />
     <Compile Include="Dtos\TrackDto.cs" />
     <Compile Include="Dtos\UserDto.cs" />
+    <Compile Include="Enums\SourceEnum.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Image.cs" />

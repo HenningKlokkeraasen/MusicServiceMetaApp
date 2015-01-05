@@ -2,6 +2,7 @@
 using System.Configuration;
 using AutoMapper;
 using Msma.Domain.Dtos;
+using Msma.Domain.Enums;
 using Msma.Domain.Models;
 using Msma.Integrations.Wimp;
 
@@ -10,7 +11,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
     internal class WimpOrchestrator : OrchestratroBase
     {
         private readonly WimpGateway _gateway = new WimpGateway(ConfigurationManager.AppSettings["WimpDeveloperKey"]);
-        private const string SourceName = "WiMP";
+        private const SourceEnum Source = SourceEnum.Wimp;
 
         internal ArtistDto GetArtist(int id)
         {
@@ -27,7 +28,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
                 AppearsOn = appearsOn
             };
 
-            return SetSoruce(dto, SourceName);
+            return SetSoruce(dto, Source);
         }
 
         internal AlbumDto GetAlbum(int id)
@@ -41,7 +42,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
                 Tracks = tracks
             };
 
-            return SetSoruce(dto, SourceName);
+            return SetSoruce(dto, Source);
         }
 
         internal TrackDto GetTrack(int id)
@@ -53,7 +54,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
                 Track = track
             };
 
-            return SetSoruce(dto, SourceName);
+            return SetSoruce(dto, Source);
         }
 
         internal void GetPlaylist(int id)

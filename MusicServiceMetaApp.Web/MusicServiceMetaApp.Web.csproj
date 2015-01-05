@@ -216,6 +216,7 @@
     <Content Include="Views\Shared\DisplayTemplates\BunchOfArtists.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfTracks.cshtml" />
     <Content Include="Views\Wimp\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Source.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -46,3 +46,17 @@ textarea {
 tr:nth-child(even) {
     background-color: #ddd;
 }
+
+.source {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+}
+
+.source-Spotify {
+    background-color: #80B719;
+}
+
+.source-Wimp {
+    background-color: #3F1034;
+}
