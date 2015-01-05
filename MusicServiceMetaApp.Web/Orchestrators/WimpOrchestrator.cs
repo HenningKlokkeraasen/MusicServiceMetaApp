@@ -7,9 +7,10 @@ using Msma.Integrations.Wimp;
 
 namespace MusicServiceMetaApp.Web.Orchestrators
 {
-    internal class WimpOrchestrator
+    internal class WimpOrchestrator : OrchestratroBase
     {
         private readonly WimpGateway _gateway = new WimpGateway(ConfigurationManager.AppSettings["WimpDeveloperKey"]);
+        private const string SourceName = "WiMP";
 
         internal ArtistDto GetArtist(int id)
         {
@@ -18,7 +19,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             var singles = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistSingles(id));
             var appearsOn = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistAppearsOn(id));
 
-            ArtistDto artistDto = new ArtistDto
+            ArtistDto dto = new ArtistDto
             {
                 Artist = artist,
                 Albums = albums,
@@ -26,41 +27,41 @@ namespace MusicServiceMetaApp.Web.Orchestrators
                 AppearsOn = appearsOn
             };
 
-            return artistDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public AlbumDto GetAlbum(int id)
+        internal AlbumDto GetAlbum(int id)
         {
             var album = Mapper.Map<Album>(_gateway.FetchAlbum(id));
             var tracks = Mapper.Map<Tracklist>(_gateway.FetchTracklist(id));
 
-            AlbumDto albumDto = new AlbumDto
+            AlbumDto dto = new AlbumDto
             {
                 Album = album,
                 Tracks = tracks
             };
 
-            return albumDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public TrackDto GetTrack(int id)
+        internal TrackDto GetTrack(int id)
         {
             var track = Mapper.Map<Track>(_gateway.FetchTrack(id));
 
-            var trackDto = new TrackDto
+            var dto = new TrackDto
             {
                 Track = track
             };
 
-            return trackDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public void GetPlaylist(int id)
+        internal void GetPlaylist(int id)
         {
 
         }
 
-        //public UserDto GetUser(int id)
+        //internal UserDto GetUser(int id)
         //{
             
         //}

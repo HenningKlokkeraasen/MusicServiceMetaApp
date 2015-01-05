@@ -1,8 +1,8 @@
 ﻿@model Msma.Domain.Dtos.AlbumDto
 
 @{
-    ViewBag.Title = "";
-    ViewBag.Source = "Spotify";
+    ViewBag.Title = Model.Album.Name + " (" + Model.Source + ")";
+    ViewBag.Source = Model.Source;
 }
 
 @{ Html.RenderPartial("DisplayTemplates/Album", Model); }

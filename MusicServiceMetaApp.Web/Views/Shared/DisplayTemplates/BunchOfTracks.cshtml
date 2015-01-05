@@ -18,12 +18,12 @@
         @foreach (Track t in Model.Items)
         {
             <tr>
-                <td>@t.TrackNumber</td>
+                <td class="rightAligned">@t.TrackNumber</td>
                 <td><a href="/@source/Track/@t.Id">@t.Name</a></td>
                 <td>
                     @{ Html.RenderPartial("DisplayTemplates/BunchOfArtists", t.Artists); }
                 </td>
-                <td>@t.DurationInSeconds seconds</td>
+                <td class="rightAligned">@t.DurationFormatted</td>
             </tr>
         }
     </tbody>

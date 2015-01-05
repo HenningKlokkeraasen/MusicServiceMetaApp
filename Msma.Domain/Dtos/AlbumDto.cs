@@ -2,7 +2,7 @@
 
 namespace Msma.Domain.Dtos
 {
-    public class AlbumDto
+    public class AlbumDto : DtoBase
     {
         public Album Album { get; set; }
 

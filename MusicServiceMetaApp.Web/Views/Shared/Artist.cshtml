@@ -1,9 +1,8 @@
 ﻿@model Msma.Domain.Dtos.ArtistDto
 
 @{
-    ViewBag.Title = "";
-    ViewBag.Source = "Wimp";
+    ViewBag.Title = Model.Artist.Name + " (" + Model.Source + ")";
+    ViewBag.Source = Model.Source;
 }
 
 @{ Html.RenderPartial("DisplayTemplates/Artist", Model); }
-

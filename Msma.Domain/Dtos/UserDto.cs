@@ -2,7 +2,7 @@
 
 namespace Msma.Domain.Dtos
 {
-    public class UserDto
+    public class UserDto : DtoBase
     {
         public User User { get; set; }
     }

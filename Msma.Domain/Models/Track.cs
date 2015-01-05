@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Msma.Domain.Models
 {
@@ -17,5 +18,16 @@ namespace Msma.Domain.Models
         public string PreviewUrl { get; set; }
 
         public Album Album { get; set; }
+
+        public string DurationFormatted
+        {
+            get
+            {
+                TimeSpan t = TimeSpan.FromSeconds(DurationInSeconds);
+                return string.Format("{0:D1}:{1:D2}",
+                    t.Minutes,
+                    t.Seconds);
+            }
+        }
     }
 }

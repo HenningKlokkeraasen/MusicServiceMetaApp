@@ -30,7 +30,7 @@ namespace Msma.Integrations.Spotify.Models
 
         public int DurationInSeconds 
         {
-            get { return (int)Math.Round(Duration/100d); }
+            get { return (int)Math.Round(Duration/1000d); }
         }
     }
 }

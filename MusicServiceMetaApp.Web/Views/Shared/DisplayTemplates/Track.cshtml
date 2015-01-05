@@ -1,20 +1,16 @@
 ﻿@model Msma.Domain.Dtos.TrackDto
 
-@{
-    var source = ViewBag.Source;
-}
-
 <h2>@Model.Track.Name</h2>
 
 <audio src="@Model.Track.PreviewUrl" controls></audio>
 
-<p>Duration: @Model.Track.DurationInSeconds ms</p>
+<p>Duration: @Model.Track.DurationFormatted</p>
 
 <p>By @{ Html.RenderPartial("DisplayTemplates/BunchOfArtists", Model.Track.Artists); } </p>
 
 <p>
     From album:<br />
-    <a href="/@source/Album/@Model.Track.Album.Id">
+    <a href="/@Model.Source/Album/@Model.Track.Album.Id">
         <img src="@Model.Track.Album.ImageUrl" alt="" />
         <br />
         @Model.Track.Album.Name

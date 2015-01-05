@@ -160,6 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MappingConfiguration.cs" />
+    <Compile Include="Orchestrators\OrchestratroBase.cs" />
     <Compile Include="Orchestrators\SpotifyOrchestrator.cs" />
     <Compile Include="Orchestrators\WimpOrchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,24 +203,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Spotify\Index.cshtml" />
-    <Content Include="Views\Spotify\Artist.cshtml" />
-    <Content Include="Views\Spotify\Album.cshtml" />
-    <Content Include="Views\Spotify\Track.cshtml" />
-    <Content Include="Views\Spotify\Playlist.cshtml" />
-    <Content Include="Views\Spotify\User.cshtml" />
+    <Content Include="Views\Shared\Artist.cshtml" />
+    <Content Include="Views\Shared\Album.cshtml" />
+    <Content Include="Views\Shared\Track.cshtml" />
+    <Content Include="Views\Shared\Playlist.cshtml" />
+    <Content Include="Views\Shared\User.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Track.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Artist.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Album.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\User.cshtml" />
-    <Content Include="Views\Wimp\Album.cshtml" />
-    <Content Include="Views\Wimp\Artist.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfAlbums.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfArtists.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfTracks.cshtml" />
     <Content Include="Views\Wimp\Index.cshtml" />
-    <Content Include="Views\Wimp\Track.cshtml" />
-    <Content Include="Views\Wimp\User.cshtml" />
-    <Content Include="Views\Wimp\Playlist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

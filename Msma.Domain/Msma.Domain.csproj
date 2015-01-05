@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Dtos\AlbumDto.cs" />
     <Compile Include="Dtos\ArtistDto.cs" />
+    <Compile Include="Dtos\DtoBase.cs" />
     <Compile Include="Dtos\TrackDto.cs" />
     <Compile Include="Dtos\UserDto.cs" />
     <Compile Include="Models\Album.cs" />

@@ -3,7 +3,7 @@ using Msma.Domain.Models;
 
 namespace Msma.Domain.Dtos
 {
-    public class ArtistDto
+    public class ArtistDto : DtoBase
     {
         public Artist Artist { get; set; }
         

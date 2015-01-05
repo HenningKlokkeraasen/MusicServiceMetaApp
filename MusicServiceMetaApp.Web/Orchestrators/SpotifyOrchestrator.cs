@@ -6,18 +6,19 @@ using Msma.Integrations.Spotify;
 
 namespace MusicServiceMetaApp.Web.Orchestrators
 {
-    public class SpotifyOrchestrator
+    internal class SpotifyOrchestrator : OrchestratroBase
     {
         private readonly SpotifyGateway _gateway = new SpotifyGateway();
+        private const string SourceName = "Spotify";
 
-        public ArtistDto GetArtist(string id)
+        internal ArtistDto GetArtist(string id)
         {
             var artist = Mapper.Map<Artist>(_gateway.FetchArtist(id));
             var albums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistAlbums(id));
             var singles = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistSingles(id));
             var appearsOn = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistAppearsOn(id));
 
-            ArtistDto artistDto = new ArtistDto
+            ArtistDto dto = new ArtistDto
             {
                 Artist = artist,
                 Albums = albums,
@@ -26,50 +27,50 @@ namespace MusicServiceMetaApp.Web.Orchestrators
                 //Compilations = compilations.Items
             };
 
-            return artistDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public AlbumDto GetAlbum(string id)
+        internal AlbumDto GetAlbum(string id)
         {
             var albumData = _gateway.FetchAlbum(id);
             var album = Mapper.Map<Album>(albumData);
 
-            AlbumDto albumDto = new AlbumDto
+            AlbumDto dto = new AlbumDto
             {
                 Album = album,
                 Tracks = Mapper.Map<Tracklist>(albumData.Tracks)
             };
 
-            return albumDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public TrackDto GetTrack(string id)
+        internal TrackDto GetTrack(string id)
         {
             var track = Mapper.Map<Track>(_gateway.FetchTrack(id));
 
-            var trackDto = new TrackDto
+            var dto = new TrackDto
             {
                 Track = track
             };
 
-            return trackDto;
+            return SetSoruce(dto, SourceName);
         }
 
-        public void GetPlaylist(string id)
+        internal void GetPlaylist(string id)
         {
             
         }
 
-        public UserDto GetUser(string id)
+        internal UserDto GetUser(string id)
         {
             var user = Mapper.Map<User>(_gateway.FetchUser(id));
 
-            var userDto = new UserDto
+            var dto = new UserDto
             {
                 User = user
             };
 
-            return userDto;
+            return SetSoruce(dto, SourceName);
         }
 
     }
