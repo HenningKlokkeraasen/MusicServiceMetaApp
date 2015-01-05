@@ -154,12 +154,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LastFmController.cs" />
     <Compile Include="Controllers\SpotifyController.cs" />
     <Compile Include="Controllers\WimpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MappingConfiguration.cs" />
+    <Compile Include="Orchestrators\LastFmOrchestrator.cs" />
     <Compile Include="Orchestrators\OrchestratroBase.cs" />
     <Compile Include="Orchestrators\SpotifyOrchestrator.cs" />
     <Compile Include="Orchestrators\WimpOrchestrator.cs" />
@@ -217,6 +219,7 @@
     <Content Include="Views\Shared\DisplayTemplates\BunchOfTracks.cshtml" />
     <Content Include="Views\Wimp\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Source.cshtml" />
+    <Content Include="Views\LastFm\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -232,6 +235,10 @@
     <ProjectReference Include="..\Msma.Domain\Msma.Domain.csproj">
       <Project>{85688050-1b63-4ccf-a782-2d5a71f0f42b}</Project>
       <Name>Msma.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Msma.Integrations.LastFm\Msma.Integrations.LastFm.csproj">
+      <Project>{f3d33329-387c-442f-a847-2fe9c55e2610}</Project>
+      <Name>Msma.Integrations.LastFm</Name>
     </ProjectReference>
     <ProjectReference Include="..\Msma.Integrations.Spotify\Msma.Integrations.Spotify.csproj">
       <Project>{667e9ee8-6e90-49db-ad7e-65a87b682e10}</Project>

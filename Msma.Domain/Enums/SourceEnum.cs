@@ -3,6 +3,7 @@
     public enum SourceEnum
     {
         Spotify,
-        Wimp
+        Wimp,
+        LastFm
     }
 }

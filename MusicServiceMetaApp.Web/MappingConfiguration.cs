@@ -9,6 +9,7 @@ namespace MusicServiceMetaApp.Web
         {
             SetupSpotifyMappings();
             SetupWimpMappings();
+            SetupLastFmMappings();
         }
 
         private static void SetupWimpMappings()
@@ -28,6 +29,11 @@ namespace MusicServiceMetaApp.Web
             Mapper.CreateMap<Msma.Integrations.Spotify.Models.Track, Msma.Domain.Models.Track>();
             Mapper.CreateMap<Msma.Integrations.Spotify.Models.Tracklist, Msma.Domain.Models.Tracklist>();
             Mapper.CreateMap<Msma.Integrations.Spotify.Models.User, Msma.Domain.Models.User>();
+        }
+
+        private static void SetupLastFmMappings()
+        {
+            Mapper.CreateMap<Msma.Integrations.LastFm.Models.Artist, Msma.Domain.Models.Artist>();
         }
 
         private static IEnumerable<Msma.Domain.Models.Artist> AddToNewList(Msma.Integrations.Wimp.Models.Artist artist)
