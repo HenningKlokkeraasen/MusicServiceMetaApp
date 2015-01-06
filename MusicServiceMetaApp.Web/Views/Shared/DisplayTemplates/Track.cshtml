@@ -2,7 +2,7 @@
 
 <h2>@Model.Track.Name</h2>
 
-<audio src="@Model.Track.PreviewUrl" controls></audio>
+@{ Html.RenderPartial("DisplayTemplates/AudioPlayer", Model.Track); }
 
 <p>Duration: @Model.Track.DurationFormatted</p>
 

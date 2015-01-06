@@ -4,6 +4,13 @@
 
 <img src="@Model.Artist.ImageUrl" alt="" />
 
+<h3>Bio</h3>
+@{Html.RenderPartial("DisplayTemplates/ArtistBio", Model.Bio); }
+
+<h3>Top Albums (+ Singles, Etc)</h3>
+@{ Html.RenderPartial("DisplayTemplates/BunchOfAlbums", Model.TopAlbums); }
+
+
 <h3>Albums</h3>
 @{ Html.RenderPartial("DisplayTemplates/BunchOfAlbums", Model.Albums); }
 

@@ -1,0 +1,32 @@
+﻿@model Msma.Domain.Models.ArtistBio
+
+@{
+    if (Model == null)
+    {
+        return;
+    }
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Formed
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearFormed)
+            <br/>
+            @Html.DisplayFor(model => model.PlaceFormed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Summary)
+        </dd>
+
+    </dl>
+</div>
+

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Msma.Integrations.LastFm.Models
 {
     [DataContract]
-    public class Artist
+    public abstract class AlbumBase
     {
         [DataMember]
         public string Name { get; set; }
@@ -15,9 +15,6 @@ namespace Msma.Integrations.LastFm.Models
 
         [DataMember(Name = "image")]
         public IEnumerable<Image> Images { get; set; }
-
-        [DataMember]
-        public ArtistBio Bio { get; set; }
 
         public string Id
         {
@@ -37,6 +34,7 @@ namespace Msma.Integrations.LastFm.Models
                 return largeImage != null
                     ? largeImage.Url
                     : string.Empty;
+
             }
         }
     }

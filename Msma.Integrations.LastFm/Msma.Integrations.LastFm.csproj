@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LastFmGateway.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\AlbumBase.cs" />
+    <Compile Include="Models\AlbumInfo.cs" />
+    <Compile Include="Models\AlbumInTopAlbums.cs" />
     <Compile Include="Models\Artist.cs" />
-    <Compile Include="Models\Lfm.cs" />
+    <Compile Include="Models\ArtistBio.cs" />
+    <Compile Include="Models\GetAlbumWrapper.cs" />
+    <Compile Include="Models\GetTopAlbumsWrapper.cs" />
+    <Compile Include="Models\GetTrackWrapper.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\GetArtistWrapper.cs" />
+    <Compile Include="Models\Track.cs" />
+    <Compile Include="Models\TrackBase.cs" />
+    <Compile Include="Models\TrackInTracklist.cs" />
+    <Compile Include="Models\Tracklist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,9 +16,9 @@ namespace MusicServiceMetaApp.Web.Controllers
         {
             if (id < 0)
                 return View("Error");
-            
-            var artistDto = _orchestrator.GetArtist(id);
-            return View(artistDto);
+
+            var viewModel = _orchestrator.GetArtist(id);
+            return View(viewModel);
         }
 
         public ActionResult Album(int id)
@@ -26,8 +26,8 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (id < 0)
                 return View("Error");
 
-            var albumDto = _orchestrator.GetAlbum(id);
-            return View(albumDto);
+            var viewModel = _orchestrator.GetAlbum(id);
+            return View(viewModel);
         }
 
         public ActionResult Track(int id)
@@ -35,8 +35,8 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (id < 0)
                 return View("Error");
 
-            var trackDto = _orchestrator.GetTrack(id);
-            return View(trackDto);
+            var viewModel = _orchestrator.GetTrack(id);
+            return View(viewModel);
         }
 
         public ActionResult Playlist(int id)
@@ -52,8 +52,8 @@ namespace MusicServiceMetaApp.Web.Controllers
         //    if (id < 0)
         //        return View("Error");
 
-        //    var userDto = _orchestrator.GetUser(id);
-        //    return View(userDto);
+        //    var viewModel = _orchestrator.GetUser(id);
+        //    return View(viewModel);
         //}
 
     }

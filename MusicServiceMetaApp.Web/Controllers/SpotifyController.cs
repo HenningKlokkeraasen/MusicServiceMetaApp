@@ -35,8 +35,8 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            var trackDto = _orchestrator.GetTrack(id);
-            return View(trackDto);
+            var viewModel = _orchestrator.GetTrack(id);
+            return View(viewModel);
         }
 
         public ActionResult Playlist(string id)
@@ -52,8 +52,8 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            var userDto = _orchestrator.GetUser(id);
-            return View(userDto);
+            var viewModel = _orchestrator.GetUser(id);
+            return View(viewModel);
         }
 
     }

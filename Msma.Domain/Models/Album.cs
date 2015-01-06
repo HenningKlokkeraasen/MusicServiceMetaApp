@@ -13,5 +13,7 @@ namespace Msma.Domain.Models
         public string ReleaseDate { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public AlbumInfo AlbumInfo { get; set; }
     }
 }

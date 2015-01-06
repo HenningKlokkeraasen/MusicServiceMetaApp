@@ -1,0 +1,13 @@
+﻿@model Msma.Domain.Models.Album
+           
+@{
+    if (Model.AlbumInfo == null)
+    {
+        return;
+    }
+}
+
+<br/>
+<p>
+    @Html.Raw(Model.AlbumInfo.Summary)
+</p>

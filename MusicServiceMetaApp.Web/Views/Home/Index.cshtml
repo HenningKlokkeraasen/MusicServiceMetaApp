@@ -5,9 +5,11 @@
 <div class="jumbotron">
     <h1>Music Service Meta App</h1>
     <p class="lead">Music Service Meta App is a meta application for music services. It lets end users compare music services, and move their data back and forth between services.</p>
-    <p>Test config value: @ViewBag.ConfigValue</p>
+    <p>Current Status: Alpha</p>
     <p><a href="/" class="btn btn-primary btn-lg">Lorem ipsum</a></p>
 </div>
+
+<h2>Look at the nice data from our integrated services!</h2>
 
 <div class="row">
     <div class="col-md-4">
@@ -15,16 +17,45 @@
         <p>
             Lorem ipsum
         </p>
-        <p>@Html.ActionLink("Spotify", "Index", "Spotify", null, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Spotify", "Index", "Spotify", null, new {@class = "btn btn-default source-Spotify"})</p>
     </div>
     <div class="col-md-4">
         <h2>WiMP</h2>
         <p>Dolor sit amet</p>
-        <p>@Html.ActionLink("WiMP", "Index", "Wimp", null, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("WiMP", "Index", "Wimp", null, new {@class = "btn btn-default source-Wimp light-color"})</p>
     </div>
     <div class="col-md-4">
         <h2>Last.fm</h2>
         <p>Cogito ergo sum</p>
-        <p>@Html.ActionLink("Last.FM", "Index", "LastFm", null, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Last.FM", "Index", "LastFm", null, new {@class = "btn btn-default source-LastFm light-color"})</p>
     </div>
+</div>
+
+<div>
+    <br/>
+    <p>List of candidate services to be integrated:
+        MusicBrainz,
+        The Echo Nest,
+        Beats Music,
+        Deezer,
+        Soundcloud,
+        Bandcamp,
+        Allmusic,
+        Discogs,
+        Rate Your Music,
+        WhoSampled,
+        Bandsintown,
+        Amazon Music,
+        iTunes Store,
+        Xbox Music,
+        Google Play,
+        Rhapsody,
+        Rdio,
+        7digital,
+        8tracks,
+        Grooveshark,
+        Napster,
+        Pandora,
+        eMusic
+    </p>
 </div>

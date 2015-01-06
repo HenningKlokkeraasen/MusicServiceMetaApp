@@ -6,7 +6,9 @@
 
 <p>@Html.DisplayFor(m => m.Album.ReleaseDate)</p>
 
-<img src="@Model.Album.ImageUrl" alt="" />
+<div><img src="@Model.Album.ImageUrl" alt="" /></div>
+
+@{ Html.RenderPartial("DisplayTemplates/AlbumInfo", Model.Album); }
 
 @{ Html.RenderPartial("DisplayTemplates/BunchOfTracks", Model.Tracks); }
 

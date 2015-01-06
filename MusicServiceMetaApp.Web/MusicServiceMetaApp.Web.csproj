@@ -220,6 +220,9 @@
     <Content Include="Views\Wimp\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Source.cshtml" />
     <Content Include="Views\LastFm\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ArtistBio.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AudioPlayer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AlbumInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

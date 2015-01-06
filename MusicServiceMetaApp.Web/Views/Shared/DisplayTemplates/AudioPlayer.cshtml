@@ -1,0 +1,10 @@
+﻿@model Msma.Domain.Models.Track
+
+@{
+    if (string.IsNullOrEmpty(Model.PreviewUrl))
+    {
+        return;
+    }
+}
+
+<audio src="@Model.PreviewUrl" controls></audio>
