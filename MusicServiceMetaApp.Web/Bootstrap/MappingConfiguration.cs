@@ -1,6 +1,6 @@
 ﻿using Msma.Orchestration.Mappings;
 
-namespace MusicServiceMetaApp.Web
+namespace MusicServiceMetaApp.Web.Bootstrap
 {
     public class MappingConfiguration
     {
