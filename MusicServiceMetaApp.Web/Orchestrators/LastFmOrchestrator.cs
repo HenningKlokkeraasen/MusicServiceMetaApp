@@ -13,11 +13,11 @@ namespace MusicServiceMetaApp.Web.Orchestrators
         private readonly LastFmGateway _gateway = new LastFmGateway(ConfigurationManager.AppSettings["LastFmDeveloperKey"]);
         private const SourceEnum Source = SourceEnum.LastFm;
 
-        internal ArtistDto GetArtist(string mbid)
+        internal ArtistDto GetArtist(string artistName)
         {
-            var unmappedArtist = _gateway.FetchArtist(mbid);
+            var unmappedArtist = _gateway.FetchArtist(artistName);
             var artist = Mapper.Map<Artist>(unmappedArtist);
-            var topAlbums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchTopAlbums(mbid));
+            var topAlbums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchTopAlbums(artistName));
             var bio = Mapper.Map<ArtistBio>(unmappedArtist.Bio);
 
             var dto = new ArtistDto
@@ -47,10 +47,10 @@ namespace MusicServiceMetaApp.Web.Orchestrators
         //    return SetSoruce(dto, Source);
         //}
 
-        internal AlbumDto GetAlbum(string mbid)
+        internal AlbumDto GetAlbum(string albumName, string artistName)
         {
-            var unmappedAlbum = _gateway.FetchAlbum(mbid);
-            unmappedAlbum.Artist = _gateway.FetchArtistByName(unmappedAlbum.ArtistName);
+            var unmappedAlbum = _gateway.FetchAlbum(albumName, artistName);
+            unmappedAlbum.Artist = _gateway.FetchArtist(artistName);
             var album = Mapper.Map<Album>(unmappedAlbum);
             var tracks = Mapper.Map<Tracklist>(unmappedAlbum.Tracks);
 
@@ -63,9 +63,9 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        public TrackDto GetTrack(string mbid)
+        public TrackDto GetTrack(string trackName, string artistName)
         {
-            var track = Mapper.Map<Track>(_gateway.FetchTrack(mbid));
+            var track = Mapper.Map<Track>(_gateway.FetchTrack(trackName, artistName));
 
             var dto = new TrackDto
             {

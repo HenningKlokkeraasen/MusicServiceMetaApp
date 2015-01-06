@@ -19,5 +19,11 @@ namespace Msma.Integrations.LastFm.Models
                 };
             }
         }
+
+        public string Id
+        {
+            get { return LastFmIdHelper.ConvertNamesToId(Artist.Name, Name); }
+        }
+
     }
 }

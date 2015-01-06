@@ -21,6 +21,11 @@ namespace Msma.Integrations.LastFm.Models
         [DataMember(Name = "wiki")]
         public AlbumInfo AlbumInfo { get; set; }
 
+        public string Id
+        {
+            get { return LastFmIdHelper.ConvertNamesToId(ArtistName, Name); }
+        }
+
         public Artist Artist { get; set; }
 
         public IEnumerable<Artist> Artists

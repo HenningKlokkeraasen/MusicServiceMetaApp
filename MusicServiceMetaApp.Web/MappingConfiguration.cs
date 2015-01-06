@@ -33,6 +33,7 @@ namespace MusicServiceMetaApp.Web
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.Artist, Msma.Domain.Models.Artist>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.Album, Msma.Domain.Models.Album>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.AlbumInTopAlbums, Msma.Domain.Models.Album>();
+            Mapper.CreateMap<Msma.Integrations.LastFm.Models.AlbumInTrack, Msma.Domain.Models.Album>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.Track, Msma.Domain.Models.Track>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.TrackInTracklist, Msma.Domain.Models.Track>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.Tracklist, Msma.Domain.Models.Tracklist>();

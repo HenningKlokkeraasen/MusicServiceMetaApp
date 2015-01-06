@@ -21,7 +21,7 @@ namespace Msma.Integrations.LastFm.Models
 
         public string Id
         {
-            get { return MusicBrainzId; }
+            get { return LastFmIdHelper.ConvertNameToId(Name); }
         }
 
         public string ImageUrl

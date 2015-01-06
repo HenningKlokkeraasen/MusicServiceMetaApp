@@ -16,11 +16,6 @@ namespace Msma.Integrations.LastFm.Models
         [DataMember(Name = "image")]
         public IEnumerable<Image> Images { get; set; }
 
-        public string Id
-        {
-            get { return MusicBrainzId; }
-        }
-
         public string ImageUrl
         {
             get

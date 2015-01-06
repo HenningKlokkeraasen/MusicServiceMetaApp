@@ -18,12 +18,9 @@ namespace Msma.Integrations.LastFm.Models
         [DataMember]
         public Artist Artist { get; set; }
 
-        [DataMember]
-        public Album Album { get; set; }
-
         public string Id
         {
-            get { return MusicBrainzId; }
+            get { return LastFmIdHelper.ConvertNamesToId(Artist.Name, Name); }
         }
 
         public IEnumerable<Artist> Artists

@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Msma.Integrations.LastFm;
 using MusicServiceMetaApp.Web.Orchestrators;
 
 namespace MusicServiceMetaApp.Web.Controllers
@@ -17,7 +18,9 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            var viewModel = _orchestrator.GetArtist(id);
+            var name = LastFmIdHelper.ConvertIdToName(id);
+
+            var viewModel = _orchestrator.GetArtist(name);
             return View(viewModel);
         }
 
@@ -35,7 +38,14 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            var viewModel = _orchestrator.GetAlbum(id);
+            var identificationParameters = LastFmIdHelper.ConvertIdToNames(id);
+            if (identificationParameters == null)
+                return View("Error");
+
+            var artistName = identificationParameters.Item1;
+            var trackName = identificationParameters.Item2;
+
+            var viewModel = _orchestrator.GetAlbum(trackName, artistName);
             return View(viewModel);
         }
 
@@ -44,7 +54,14 @@ namespace MusicServiceMetaApp.Web.Controllers
             if (string.IsNullOrEmpty(id))
                 return View("Error");
 
-            var viewModel = _orchestrator.GetTrack(id);
+            var identificationParameters = LastFmIdHelper.ConvertIdToNames(id);
+            if (identificationParameters == null)
+                return View("Error");
+
+            var artistName = identificationParameters.Item1;
+            var trackName = identificationParameters.Item2;
+
+            var viewModel = _orchestrator.GetTrack(trackName, artistName);
             return View(viewModel);
         }
     }

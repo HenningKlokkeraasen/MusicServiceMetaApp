@@ -5,6 +5,9 @@ namespace Msma.Integrations.LastFm.Models
     [DataContract]
     public class TrackInTracklist : TrackBase
     {
+        [DataMember]
+        public Album Album { get; set; }
+
         [DataMember(Name = "duration")]
         public int DurationInSeconds { get; set; }
 
