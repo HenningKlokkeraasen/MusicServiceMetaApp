@@ -1,11 +1,13 @@
-﻿using System.Web.Mvc;
-using MusicServiceMetaApp.Web.Orchestrators;
+﻿using System.Configuration;
+using System.Web.Mvc;
+using Msma.Orchestration;
+using Msma.Orchestration.Integrations;
 
 namespace MusicServiceMetaApp.Web.Controllers
 {
     public class WimpController : Controller
     {
-        private readonly WimpOrchestrator _orchestrator = new WimpOrchestrator();
+        private readonly WimpOrchestrator _orchestrator = new WimpOrchestrator(ConfigurationManager.AppSettings["WimpDeveloperKey"]);
 
         public ActionResult Index()
         {

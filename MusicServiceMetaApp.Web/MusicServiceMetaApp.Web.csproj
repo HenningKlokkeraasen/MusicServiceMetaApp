@@ -161,10 +161,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MappingConfiguration.cs" />
-    <Compile Include="Orchestrators\LastFmOrchestrator.cs" />
-    <Compile Include="Orchestrators\OrchestratroBase.cs" />
-    <Compile Include="Orchestrators\SpotifyOrchestrator.cs" />
-    <Compile Include="Orchestrators\WimpOrchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -239,17 +235,9 @@
       <Project>{85688050-1b63-4ccf-a782-2d5a71f0f42b}</Project>
       <Name>Msma.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Msma.Integrations.LastFm\Msma.Integrations.LastFm.csproj">
-      <Project>{f3d33329-387c-442f-a847-2fe9c55e2610}</Project>
-      <Name>Msma.Integrations.LastFm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Msma.Integrations.Spotify\Msma.Integrations.Spotify.csproj">
-      <Project>{667e9ee8-6e90-49db-ad7e-65a87b682e10}</Project>
-      <Name>Msma.Integrations.Spotify</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Msma.Integrations.Wimp\Msma.Integrations.Wimp.csproj">
-      <Project>{4af5ad08-0511-47b6-8f71-68da01ad0683}</Project>
-      <Name>Msma.Integrations.Wimp</Name>
+    <ProjectReference Include="..\Msma.Orchestration\Msma.Orchestration.csproj">
+      <Project>{da5bd075-7ab7-4a60-8150-693b4a39ea65}</Project>
+      <Name>Msma.Orchestration</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

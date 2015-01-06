@@ -1,9 +1,9 @@
 ﻿using Msma.Domain.Dtos;
 using Msma.Domain.Enums;
 
-namespace MusicServiceMetaApp.Web.Orchestrators
+namespace Msma.Orchestration.Integrations
 {
-    internal abstract class OrchestratroBase
+    public abstract class OrchestratorBase
     {
         protected T SetSoruce<T>(T dto, SourceEnum source)
             where T: DtoBase

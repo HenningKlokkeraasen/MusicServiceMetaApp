@@ -5,14 +5,14 @@ using Msma.Domain.Enums;
 using Msma.Domain.Models;
 using Msma.Integrations.Spotify;
 
-namespace MusicServiceMetaApp.Web.Orchestrators
+namespace Msma.Orchestration.Integrations
 {
-    internal class SpotifyOrchestrator : OrchestratroBase
+    public class SpotifyOrchestrator : OrchestratorBase
     {
         private readonly SpotifyGateway _gateway = new SpotifyGateway();
         private const SourceEnum Source = SourceEnum.Spotify;
 
-        internal ArtistDto GetArtist(string id)
+        public ArtistDto GetArtist(string id)
         {
             var artist = Mapper.Map<Artist>(_gateway.FetchArtist(id));
             var albums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistAlbums(id));
@@ -31,7 +31,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal AlbumDto GetAlbum(string id)
+        public AlbumDto GetAlbum(string id)
         {
             var albumData = _gateway.FetchAlbum(id);
             var album = Mapper.Map<Album>(albumData);
@@ -45,7 +45,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal TrackDto GetTrack(string id)
+        public TrackDto GetTrack(string id)
         {
             var track = Mapper.Map<Track>(_gateway.FetchTrack(id));
 
@@ -57,12 +57,12 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal void GetPlaylist(string id)
+        public void GetPlaylist(string id)
         {
             
         }
 
-        internal UserDto GetUser(string id)
+        public UserDto GetUser(string id)
         {
             var user = Mapper.Map<User>(_gateway.FetchUser(id));
 

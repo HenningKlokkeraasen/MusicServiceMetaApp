@@ -1,20 +1,26 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using AutoMapper;
 using Msma.Domain.Dtos;
 using Msma.Domain.Enums;
 using Msma.Domain.Models;
 using Msma.Integrations.LastFm;
 
-namespace MusicServiceMetaApp.Web.Orchestrators
+namespace Msma.Orchestration.Integrations
 {
-    internal class LastFmOrchestrator : OrchestratroBase
+    public class LastFmOrchestrator : OrchestratorBase
     {
-        private readonly LastFmGateway _gateway = new LastFmGateway(ConfigurationManager.AppSettings["LastFmDeveloperKey"]);
+        private readonly LastFmGateway _gateway;
         private const SourceEnum Source = SourceEnum.LastFm;
 
-        internal ArtistDto GetArtist(string artistName)
+        public LastFmOrchestrator(string developerKey)
         {
+            _gateway = new LastFmGateway(developerKey);
+        }
+
+        public ArtistDto GetArtist(string id)
+        {
+            var artistName = LastFmIdHelper.ConvertIdToName(id);
+
             var unmappedArtist = _gateway.FetchArtist(artistName);
             var artist = Mapper.Map<Artist>(unmappedArtist);
             var topAlbums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchTopAlbums(artistName));
@@ -47,8 +53,15 @@ namespace MusicServiceMetaApp.Web.Orchestrators
         //    return SetSoruce(dto, Source);
         //}
 
-        internal AlbumDto GetAlbum(string albumName, string artistName)
+        public AlbumDto GetAlbum(string id)
         {
+            var identificationParameters = LastFmIdHelper.ConvertIdToNames(id);
+            if (identificationParameters == null)
+                return null;
+
+            var artistName = identificationParameters.Item1;
+            var albumName = identificationParameters.Item2;
+
             var unmappedAlbum = _gateway.FetchAlbum(albumName, artistName);
             unmappedAlbum.Artist = _gateway.FetchArtist(artistName);
             var album = Mapper.Map<Album>(unmappedAlbum);
@@ -63,8 +76,15 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        public TrackDto GetTrack(string trackName, string artistName)
+        public TrackDto GetTrack(string id)
         {
+            var identificationParameters = LastFmIdHelper.ConvertIdToNames(id);
+            if (identificationParameters == null)
+                return null;
+
+            var artistName = identificationParameters.Item1;
+            var trackName = identificationParameters.Item2;
+
             var track = Mapper.Map<Track>(_gateway.FetchTrack(trackName, artistName));
 
             var dto = new TrackDto

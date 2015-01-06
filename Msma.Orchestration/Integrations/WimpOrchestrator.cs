@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using AutoMapper;
 using Msma.Domain.Dtos;
 using Msma.Domain.Enums;
 using Msma.Domain.Models;
 using Msma.Integrations.Wimp;
 
-namespace MusicServiceMetaApp.Web.Orchestrators
+namespace Msma.Orchestration.Integrations
 {
-    internal class WimpOrchestrator : OrchestratroBase
+    public class WimpOrchestrator : OrchestratorBase
     {
-        private readonly WimpGateway _gateway = new WimpGateway(ConfigurationManager.AppSettings["WimpDeveloperKey"]);
+        private readonly WimpGateway _gateway;
         private const SourceEnum Source = SourceEnum.Wimp;
 
-        internal ArtistDto GetArtist(int id)
+        public WimpOrchestrator(string developerKey)
+        {
+            _gateway = new WimpGateway(developerKey);
+        }
+
+        public ArtistDto GetArtist(int id)
         {
             var artist = Mapper.Map<Artist>(_gateway.FetchArtist(id));
             var albums = Mapper.Map<IEnumerable<Album>>(_gateway.FetchArtistAlbums(id));
@@ -31,7 +35,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal AlbumDto GetAlbum(int id)
+        public AlbumDto GetAlbum(int id)
         {
             var album = Mapper.Map<Album>(_gateway.FetchAlbum(id));
             var tracks = Mapper.Map<Tracklist>(_gateway.FetchTracklist(id));
@@ -45,7 +49,7 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal TrackDto GetTrack(int id)
+        public TrackDto GetTrack(int id)
         {
             var track = Mapper.Map<Track>(_gateway.FetchTrack(id));
 
@@ -57,12 +61,12 @@ namespace MusicServiceMetaApp.Web.Orchestrators
             return SetSoruce(dto, Source);
         }
 
-        internal void GetPlaylist(int id)
+        public void GetPlaylist(int id)
         {
 
         }
 
-        //internal UserDto GetUser(int id)
+        //public UserDto GetUser(int id)
         //{
             
         //}
