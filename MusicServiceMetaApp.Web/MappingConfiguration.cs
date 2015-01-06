@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 
 namespace MusicServiceMetaApp.Web
 {
@@ -15,10 +14,8 @@ namespace MusicServiceMetaApp.Web
         private static void SetupWimpMappings()
         {
             Mapper.CreateMap<Msma.Integrations.Wimp.Models.Artist, Msma.Domain.Models.Artist>();
-            Mapper.CreateMap<Msma.Integrations.Wimp.Models.Album, Msma.Domain.Models.Album>()
-                .ForMember(destination => destination.Artists, options => options.MapFrom(source => AddToNewList(source.Artist)));
-            Mapper.CreateMap<Msma.Integrations.Wimp.Models.Track, Msma.Domain.Models.Track>()
-                .ForMember(destination => destination.Artists, options => options.MapFrom(source => AddToNewList(source.Artist)));
+            Mapper.CreateMap<Msma.Integrations.Wimp.Models.Album, Msma.Domain.Models.Album>();
+            Mapper.CreateMap<Msma.Integrations.Wimp.Models.Track, Msma.Domain.Models.Track>();
             Mapper.CreateMap<Msma.Integrations.Wimp.Models.Tracklist, Msma.Domain.Models.Tracklist>();
         }
 
@@ -41,14 +38,6 @@ namespace MusicServiceMetaApp.Web
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.Tracklist, Msma.Domain.Models.Tracklist>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.ArtistBio, Msma.Domain.Models.ArtistBio>();
             Mapper.CreateMap<Msma.Integrations.LastFm.Models.AlbumInfo, Msma.Domain.Models.AlbumInfo>();
-        }
-
-        private static IEnumerable<Msma.Domain.Models.Artist> AddToNewList(Msma.Integrations.Wimp.Models.Artist artist)
-        {
-            return new List<Msma.Domain.Models.Artist>
-            {
-                Mapper.Map<Msma.Domain.Models.Artist>(artist)
-            };
         }
     }
 }

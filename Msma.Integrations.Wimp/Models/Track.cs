@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Msma.Integrations.Wimp.Models
 {
@@ -31,6 +32,17 @@ namespace Msma.Integrations.Wimp.Models
         public string PreviewUrl
         {
             get { return "http://wdc.aspiro.com/dc/pser/" + Id + "/12/NO"; }
+        }
+
+        public IEnumerable<Artist> Artists
+        {
+            get
+            {
+                return new List<Artist>
+                {
+                    Artist
+                };
+            }
         }
     }
 }

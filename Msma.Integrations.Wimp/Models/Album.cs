@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Msma.Integrations.Wimp.Models
 {
@@ -27,6 +28,17 @@ namespace Msma.Integrations.Wimp.Models
                 return !string.IsNullOrEmpty(Cover)
                     ? "http://resources.wimpmusic.com/images/" + Cover.Replace('-', '/') + "/160x160.jpg"
                     : string.Empty;
+            }
+        }
+
+        public IEnumerable<Artist> Artists
+        {
+            get
+            {
+                return new List<Artist>
+                {
+                    Artist
+                };
             }
         }
     }
