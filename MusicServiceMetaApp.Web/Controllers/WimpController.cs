@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
-using Msma.Orchestration;
 using Msma.Orchestration.Integrations;
+using MusicServiceMetaApp.Web.Data;
 
 namespace MusicServiceMetaApp.Web.Controllers
 {
@@ -11,7 +11,8 @@ namespace MusicServiceMetaApp.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var viewModel = WimpIndexData.GetViewModel();
+            return View(viewModel);
         }
 
         public ActionResult Artist(int id)

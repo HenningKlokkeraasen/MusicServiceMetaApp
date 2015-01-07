@@ -156,13 +156,20 @@
     <Compile Include="Bootstrap\MappingConfiguration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LastFmController.cs" />
+    <Compile Include="Controllers\MusicBrainzController.cs" />
     <Compile Include="Controllers\SpotifyController.cs" />
     <Compile Include="Controllers\WimpController.cs" />
+    <Compile Include="Data\WimpIndexData.cs" />
+    <Compile Include="Data\MusicBrainzIndexData.cs" />
+    <Compile Include="Data\SpotifyIndexData.cs" />
+    <Compile Include="Data\LastFmIndexData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ActionLinkData.cs" />
+    <Compile Include="ViewModels\ServiceIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -200,7 +207,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Spotify\Index.cshtml" />
     <Content Include="Views\Shared\Artist.cshtml" />
     <Content Include="Views\Shared\Album.cshtml" />
     <Content Include="Views\Shared\Track.cshtml" />
@@ -213,16 +219,13 @@
     <Content Include="Views\Shared\DisplayTemplates\BunchOfAlbums.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfArtists.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\BunchOfTracks.cshtml" />
-    <Content Include="Views\Wimp\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Source.cshtml" />
-    <Content Include="Views\LastFm\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ArtistBio.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AudioPlayer.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AlbumInfo.cshtml" />
+    <Content Include="Views\Shared\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

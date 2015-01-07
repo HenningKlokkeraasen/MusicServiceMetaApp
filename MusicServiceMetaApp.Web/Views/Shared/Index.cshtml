@@ -1,0 +1,31 @@
+﻿@model MusicServiceMetaApp.Web.ViewModels.ServiceIndexViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h1 class="@Model.CssClass">@Model.Title</h1>
+
+<h2>Albums</h2>
+<ul>
+    @foreach (var actionLinkData in Model.AlbumLinks)
+    {
+        <li>@Html.ActionLink(actionLinkData.Title, actionLinkData.Action, new { @id = actionLinkData.IdRouteAttribute })</li>
+    }
+</ul>
+
+<h2>Artists</h2>
+<ul>
+    @foreach (var actionLinkData in Model.ArtistLinks)
+    {
+        <li>@Html.ActionLink(actionLinkData.Title, actionLinkData.Action, new { @id = actionLinkData.IdRouteAttribute })</li>
+    }
+</ul>
+
+<h2>Users</h2>
+<ul>
+    @foreach (var actionLinkData in Model.UserLinks)
+    {
+        <li>@Html.ActionLink(actionLinkData.Title, actionLinkData.Action, new { @id = actionLinkData.IdRouteAttribute })</li>
+    }
+</ul>

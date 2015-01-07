@@ -55,16 +55,20 @@ tr:nth-child(even) {
 
 .source-Spotify {
     background-color: #80B719;
+    color: #111;
 }
 
 .source-Wimp {
     background-color: #3F1034;
+    color: #eee;
 }
 
 .source-LastFm {
     background-color: #E31B23;
+    color: #eee;
 }
 
-.light-color {
-    color: #bbb;
+.source-MusicBrainz {
+    background-color: #736dab;
+    color: #eee;
 }
