@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using Msma.Integrations.Common;
 using Msma.Integrations.LastFm.Models;
 
@@ -63,18 +62,8 @@ namespace Msma.Integrations.LastFm
 
         private static T FetchLastFmData<T>(string apiMethod, IEnumerable<KeyValuePair<string, string>> identificationParameters)
         {
-            string url = UriBase + "?method=" + apiMethod + FlattenIdentificationParameters(identificationParameters) + "&api_key=" + _apiToken + "&format=json";
+            string url = UriBase + "?method=" + apiMethod + QueryStringParameterHelper.FlattenQueryStringParameters(identificationParameters) + "&api_key=" + _apiToken + "&format=json";
             return Fetcher.FetchJson<T>(url);
-        }
-
-        private static string FlattenIdentificationParameters(IEnumerable<KeyValuePair<string, string>> identificationParameters)
-        {
-            var sb = new StringBuilder();
-            foreach (var x in identificationParameters)
-            {
-                sb.Append("&" + x.Key + "=" + x.Value);
-            }
-            return sb.ToString();
         }
     }
 }

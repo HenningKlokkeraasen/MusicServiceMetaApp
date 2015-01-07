@@ -4,6 +4,7 @@
     {
         Spotify,
         Wimp,
-        LastFm
+        LastFm,
+        MusicBrainz
     }
 }

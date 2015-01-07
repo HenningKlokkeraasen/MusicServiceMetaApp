@@ -10,7 +10,28 @@ namespace MusicServiceMetaApp.Web.Data
             return new ServiceIndexViewModel
             {
                 Title = "MusicBrainz",
-                CssClass = "source-MusicBrainz"
+                CssClass = "source-MusicBrainz",
+                ArtistLinks = new List<ActionLinkData>
+                {
+                    new ActionLinkData
+                    {
+                        Title = "Band of Horses",
+                        Action = "Artist",
+                        IdRouteAttribute = "07b6020a-c539-4d68-aeef-f159f3befc76"
+                    },
+                    new ActionLinkData
+                    {
+                        Title = "Calexico",
+                        Action = "Artist",
+                        IdRouteAttribute =  "5e372a49-5672-4fb8-ba14-18c90780c4f9"
+                    },
+                    new ActionLinkData
+                    {
+                        Title = "Kaizers Orchestra",
+                        Action = "Artist",
+                        IdRouteAttribute = "2c3bac0a-5158-442f-b50b-056aae52138c"
+                    }
+                }
             };
         }
     }

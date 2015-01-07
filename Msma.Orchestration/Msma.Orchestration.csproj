@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Integrations\LastFmOrchestrator.cs" />
+    <Compile Include="Integrations\MusicBrainsOrchestrator.cs" />
     <Compile Include="Integrations\OrchestratorBase.cs" />
     <Compile Include="Mappings\LastFmMappingConfiguration.cs" />
+    <Compile Include="Mappings\MusicBrainzMappingConfiguration.cs" />
     <Compile Include="Mappings\WimpMappingConfiguration.cs" />
     <Compile Include="Mappings\SpotifyMappingConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +68,10 @@
     <ProjectReference Include="..\Msma.Integrations.LastFm\Msma.Integrations.LastFm.csproj">
       <Project>{f3d33329-387c-442f-a847-2fe9c55e2610}</Project>
       <Name>Msma.Integrations.LastFm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Msma.Integrations.MusicBrainz\Msma.Integrations.MusicBrainz.csproj">
+      <Project>{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}</Project>
+      <Name>Msma.Integrations.MusicBrainz</Name>
     </ProjectReference>
     <ProjectReference Include="..\Msma.Integrations.Spotify\Msma.Integrations.Spotify.csproj">
       <Project>{667e9ee8-6e90-49db-ad7e-65a87b682e10}</Project>

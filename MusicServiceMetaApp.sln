@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "910 Integration Tests", "91
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "200 Persistance", "200 Persistance", "{6396288F-1E92-4F5C-A594-AEEE63F0E1A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msma.Integrations.MusicBrainz", "Msma.Integrations.MusicBrainz\Msma.Integrations.MusicBrainz.csproj", "{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{DA5BD075-7AB7-4A60-8150-693B4A39EA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA5BD075-7AB7-4A60-8150-693B4A39EA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA5BD075-7AB7-4A60-8150-693B4A39EA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,5 +88,6 @@ Global
 		{85688050-1B63-4CCF-A782-2D5A71F0F42B} = {8151543B-B633-4DC4-9AF9-90BD347AF323}
 		{F3D33329-387C-442F-A847-2FE9C55E2610} = {9FB9EF4E-C2C7-454A-9EC8-79E17778E18B}
 		{DA5BD075-7AB7-4A60-8150-693B4A39EA65} = {FB1870B7-20EA-4BEC-8B9A-C5D3DF0B9076}
+		{3A4BDDAA-0B6C-4A5D-8638-73F2181E8069} = {9FB9EF4E-C2C7-454A-9EC8-79E17778E18B}
 	EndGlobalSection
 EndGlobal
