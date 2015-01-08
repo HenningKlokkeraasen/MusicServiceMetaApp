@@ -3,6 +3,11 @@
 
 @{
     var source = ViewBag.Source;
+
+    if (!Model.Items.Any())
+    {
+        return;
+    }
 }
        
 <table>

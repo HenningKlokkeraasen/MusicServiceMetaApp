@@ -11,6 +11,15 @@ namespace MusicServiceMetaApp.Web.Data
             {
                 Title = "MusicBrainz",
                 CssClass = "source-MusicBrainz",
+                AlbumLinks = new List<ActionLinkData>
+                {
+                    new ActionLinkData
+                    {
+                        Title = "Bauta: En hyllest til Bjørn Eidsvåg",
+                        Action = "Album",
+                        IdRouteAttribute = "a02f23b5-486b-4499-afff-eb260b1d63a0"
+                    }
+                },
                 ArtistLinks = new List<ActionLinkData>
                 {
                     new ActionLinkData

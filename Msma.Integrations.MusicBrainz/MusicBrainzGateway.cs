@@ -24,6 +24,18 @@ namespace Msma.Integrations.MusicBrainz
             return artist;
         }
 
+        public ReleaseGroup FetchReleaseGroup(string mbid)
+        {
+            var entitiesToInclude = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("inc", "artists+releases")
+            };
+            
+            var releaseGroup = FetchMusicBrainzData<ReleaseGroup>("release-group", mbid, entitiesToInclude);
+
+            return releaseGroup;
+        }
+
         private static T FetchMusicBrainzData<T>(string apiMethod, string mbid, IEnumerable<KeyValuePair<string, string>> entitiesToInclude)
         {
             var flattenedEntitiesToInclude = QueryStringParameterHelper.FlattenQueryStringParameters(entitiesToInclude, true);

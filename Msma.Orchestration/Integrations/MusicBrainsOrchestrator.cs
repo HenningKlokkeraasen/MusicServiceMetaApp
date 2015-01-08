@@ -32,5 +32,22 @@ namespace Msma.Orchestration.Integrations
 
             return SetSoruce(dto, Source);
         }
+
+        public AlbumDto GetAlbum(string mbid)
+        {
+            var unmappedAlbum = _gateway.FetchReleaseGroup(mbid);
+            var album = Mapper.Map<Album>(unmappedAlbum);
+
+            var dto = new AlbumDto
+            {
+                Album = album,
+                Tracks = new Tracklist
+                {
+                    Items = new List<Track>()
+                }
+            };
+
+            return SetSoruce(dto, Source);
+        }
     }
 }

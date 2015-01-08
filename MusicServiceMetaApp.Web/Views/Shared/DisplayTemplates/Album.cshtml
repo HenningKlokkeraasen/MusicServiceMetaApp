@@ -6,7 +6,7 @@
 
 <p>@Html.DisplayFor(m => m.Album.ReleaseDate)</p>
 
-<div><img src="@Model.Album.ImageUrl" alt="" /></div>
+<div>@{Html.RenderPartial("DisplayTemplates/AlbumCover", new Tuple<string, string>(Model.Album.ImageUrl, string.Empty));}</div>
 
 @{ Html.RenderPartial("DisplayTemplates/AlbumInfo", Model.Album); }
 
