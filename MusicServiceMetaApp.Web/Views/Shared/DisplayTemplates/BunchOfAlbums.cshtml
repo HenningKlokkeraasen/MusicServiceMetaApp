@@ -10,7 +10,7 @@
     {
         <div>
             <a href="/@source/Album/@a.Id">
-                <img src="@a.ImageUrl" alt="" />
+                @{ Html.RenderPartial("DisplayTemplates/AlbumCover", new Tuple<string, string>(a.ImageUrl, string.Empty)); }
                 <br />
                 @a.Name
             </a>

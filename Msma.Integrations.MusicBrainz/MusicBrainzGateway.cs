@@ -14,12 +14,12 @@ namespace Msma.Integrations.MusicBrainz
 
         public Artist FetchArtist(string mbid)
         {
-            //var entitiesToInclude = new List<KeyValuePair<string, string>>
-            //{
-            //    new KeyValuePair<string, string>("inc", "releases+media")
-            //};
+            var entitiesToInclude = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("inc", "release-groups")
+            };
 
-            var artist = FetchMusicBrainzData<Artist>("artist", mbid, null);
+            var artist = FetchMusicBrainzData<Artist>("artist", mbid, entitiesToInclude);
             EnsureNotNulls(ref artist);
             return artist;
         }

@@ -19,7 +19,5 @@ namespace Msma.Integrations.MusicBrainz.Models
 
         [DataMember(Name = "release_date")]
         public string ReleaseDate { get; set; }
-
     }
-
 }

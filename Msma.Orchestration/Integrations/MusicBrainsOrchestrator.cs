@@ -21,11 +21,13 @@ namespace Msma.Orchestration.Integrations
                 YearFormed = unmappedArtist.LifeSpan.Begin,
                 PlaceFormed = unmappedArtist.BeginArea.Name
             };
+            var topAlbums = Mapper.Map<IEnumerable<Album>>(unmappedArtist.ReleaseGroups);
 
             var dto = new ArtistDto
             {
                 Artist = artist,
-                Bio = bio
+                Bio = bio,
+                TopAlbums = topAlbums
             };
 
             return SetSoruce(dto, Source);

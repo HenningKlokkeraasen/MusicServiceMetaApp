@@ -44,6 +44,7 @@
     <Compile Include="Models\LifeSpan.cs" />
     <Compile Include="Models\Release.cs" />
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\ReleaseGroup.cs" />
     <Compile Include="MusicBrainzGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

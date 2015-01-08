@@ -1,0 +1,9 @@
+﻿@model Tuple<string, string>
+           
+@if (string.IsNullOrEmpty(Model.Item1))
+{
+    <div class="missingAlbumCoverCanvasPlaceholder"></div>
+    return;
+}
+
+<img src="@Model.Item1" alt="@Model.Item2"/>
