@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integrations\BeatsMusicOrchestrator.cs" />
     <Compile Include="Integrations\LastFmOrchestrator.cs" />
     <Compile Include="Integrations\MusicBrainsOrchestrator.cs" />
     <Compile Include="Integrations\OrchestratorBase.cs" />
+    <Compile Include="Mappings\BeatsMusicMappingConfiguration.cs" />
     <Compile Include="Mappings\LastFmMappingConfiguration.cs" />
     <Compile Include="Mappings\MusicBrainzMappingConfiguration.cs" />
     <Compile Include="Mappings\WimpMappingConfiguration.cs" />
@@ -60,6 +62,10 @@
     <ProjectReference Include="..\Msma.Domain\Msma.Domain.csproj">
       <Project>{85688050-1b63-4ccf-a782-2d5a71f0f42b}</Project>
       <Name>Msma.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Msma.Integrations.BeatsMusic\Msma.Integrations.BeatsMusic.csproj">
+      <Project>{c1fee516-b785-430b-afce-a8d217db75c4}</Project>
+      <Name>Msma.Integrations.BeatsMusic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Msma.Integrations.Common\Msma.Integrations.Common.csproj">
       <Project>{217a441d-9758-452a-8772-30da9696df78}</Project>

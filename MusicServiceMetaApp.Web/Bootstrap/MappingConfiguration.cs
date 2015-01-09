@@ -8,6 +8,7 @@ namespace MusicServiceMetaApp.Web.Bootstrap
         {
             new SpotifyMappingConfiguration().SetupMappings();
             new WimpMappingConfiguration().SetupMappings();
+            new BeatsMusicMappingConfiguration().SetupMappings();
             new LastFmMappingConfiguration().SetupMappings();
             new MusicBrainzMappingConfiguration().SetupMappings();
         }

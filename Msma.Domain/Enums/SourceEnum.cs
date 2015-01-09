@@ -4,6 +4,7 @@
     {
         Spotify,
         Wimp,
+        BeatsMusic,
         LastFm,
         MusicBrainz
     }

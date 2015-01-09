@@ -63,6 +63,11 @@ tr:nth-child(even) {
     color: #eee;
 }
 
+.source-BeatsMusic {
+    background-color: #e31837;
+    color: #eee;
+}
+
 .source-LastFm {
     background-color: #E31B23;
     color: #eee;
