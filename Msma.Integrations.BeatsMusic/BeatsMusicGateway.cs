@@ -26,10 +26,21 @@ namespace Msma.Integrations.BeatsMusic
         {
             var queryStringParameters = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("refs", string.Empty)
+                new KeyValuePair<string, string>("refs", string.Empty),
+                new KeyValuePair<string, string>("order_by", "release_date+desc"),
             };
-
+            
             return FetchBeatsMusicData<GetAlbumsWrapper>("artists", artistId, "/albums", queryStringParameters).Albums;
+        }
+
+        public IEnumerable<Album> FetchEssentialAlbums(string artistId)
+        {
+            //var queryStringParameters = new List<KeyValuePair<string, string>>
+            //{
+            //    new KeyValuePair<string, string>("refs", string.Empty)
+            //};
+
+            return FetchBeatsMusicData<GetAlbumsWrapper>("artists", artistId, "/essential_albums").Albums;
         }
 
         public string FetchArtistImageUrl(string artistId)

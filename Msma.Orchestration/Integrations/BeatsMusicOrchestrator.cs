@@ -25,7 +25,12 @@ namespace Msma.Orchestration.Integrations
             unmappedArtist.ImageUrl = _gateway.FetchArtistImageUrl(id);
             var artist = Mapper.Map<Artist>(unmappedArtist);
 
+            var unmappedToAlbums = _gateway.FetchEssentialAlbums(id);
+            unmappedToAlbums.Each(a => a.ImageUrl = _gateway.FetchAlbumImageUrl(a.Id));
+            var topAlbums = Mapper.Map<IEnumerable<Album>>(unmappedToAlbums);
+
             var unmappedAlbums = _gateway.FetchAlbums(id);
+            unmappedAlbums.Each(a => a.ImageUrl = _gateway.FetchAlbumImageUrl(a.Id));
             var albums = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "LP"));
             var singles = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "EP" || a.ReleaseFormat == "Single"));
             var compilations = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "Compilation"));
@@ -35,7 +40,9 @@ namespace Msma.Orchestration.Integrations
                 Artist = artist,
                 Albums = albums,
                 Singles = singles,
-                Compilations = compilations
+                Compilations = compilations,
+                //AppearsOn = ?,
+                TopAlbums = topAlbums
             };
 
             return SetSoruce(dto, Source);
