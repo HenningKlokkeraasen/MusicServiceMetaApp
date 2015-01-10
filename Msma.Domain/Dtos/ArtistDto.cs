@@ -25,7 +25,11 @@ namespace Msma.Domain.Dtos
             set { _appearsOn = value; }
         }
 
-        //public IEnumerable<Album> Compilations { get; set; }
+        public IEnumerable<Album> Compilations
+        {
+            get { return _compilations; }
+            set { _compilations = value; }
+        }
 
         public IEnumerable<Album> TopAlbums
         {
@@ -44,5 +48,6 @@ namespace Msma.Domain.Dtos
         private IEnumerable<Album> _singles = new List<Album>();
         private IEnumerable<Album> _appearsOn = new List<Album>();
         private IEnumerable<Album> _topAlbums = new List<Album>();
+        private IEnumerable<Album> _compilations = new List<Album>();
     }
 }

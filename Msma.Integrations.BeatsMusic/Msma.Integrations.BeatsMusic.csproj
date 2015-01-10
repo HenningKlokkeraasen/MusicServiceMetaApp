@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Msma.Integrations.BeatsMusic</RootNamespace>
     <AssemblyName>Msma.Integrations.BeatsMusic</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -42,13 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeatsMusicGateway.cs" />
+    <Compile Include="Models\AlbumInRefs.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\ArtistInRefs.cs" />
+    <Compile Include="Models\GetTrackWrapper.cs" />
+    <Compile Include="Models\GetTracksWrapper.cs" />
     <Compile Include="Models\GetAlbumsWrapper.cs" />
     <Compile Include="Models\GetAlbumWrapper.cs" />
     <Compile Include="Models\GetArtistWrapper.cs" />
-    <Compile Include="Models\AlbumRefs.cs" />
+    <Compile Include="Models\RefsForTrack.cs" />
+    <Compile Include="Models\RefsForAlbum.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

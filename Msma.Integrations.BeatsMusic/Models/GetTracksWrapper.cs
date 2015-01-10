@@ -1,19 +1,15 @@
 ﻿using System.Collections.Generic;
-
 using System.Runtime.Serialization;
 
 namespace Msma.Integrations.BeatsMusic.Models
 {
     [DataContract]
-    public class AlbumRefs
+    public class GetTracksWrapper
     {
-        [DataMember]
-        public IEnumerable<ArtistInRefs> Artists { get; set; }
+        [DataMember(Name = "code")]
+        public string ResponseCode { get; set; }
 
-        [DataMember]
-        public Label Label { get; set; }
-
-        [DataMember]
+        [DataMember(Name = "data")]
         public IEnumerable<Track> Tracks { get; set; }
     }
 }

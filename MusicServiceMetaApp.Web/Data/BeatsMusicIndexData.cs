@@ -11,15 +11,15 @@ namespace MusicServiceMetaApp.Web.Data
             {
                 Title = "Beats Music",
                 CssClass = "source-BeatsMusic",
-                //AlbumLinks = new List<ActionLinkData>
-                //{
-                //    new ActionLinkData
-                //    {
-                //        Title = "Bauta: En hyllest til Bjørn Eidsvåg",
-                //        Action = "Album",
-                //        IdRouteAttribute = "Various+Artists|Bauta:+En+hyllest+til+Bjørn+Eidsvåg"
-                //    }
-                //},
+                AlbumLinks = new List<ActionLinkData>
+                {
+                    new ActionLinkData
+                    {
+                        Title = "A Very Special Christmas",
+                        Action = "Album",
+                        IdRouteAttribute = "al19690449"
+                    }
+                },
                 ArtistLinks = new List<ActionLinkData>
                 {
                     new ActionLinkData
@@ -28,18 +28,18 @@ namespace MusicServiceMetaApp.Web.Data
                         Action = "Artist",
                         IdRouteAttribute = "ar273771"
                     },
-                    //new ActionLinkData
-                    //{
-                    //    Title = "Calexico",
-                    //    Action = "Artist",
-                    //    IdRouteAttribute =  "Calexico"
-                    //},
-                    //new ActionLinkData
-                    //{
-                    //    Title = "Kaizers Orchestra",
-                    //    Action = "Artist",
-                    //    IdRouteAttribute = "Kaizers+Orchestra"
-                    //}
+                    new ActionLinkData
+                    {
+                        Title = "Calexico",
+                        Action = "Artist",
+                        IdRouteAttribute =  "ar163212"
+                    },
+                    new ActionLinkData
+                    {
+                        Title = "Kaizers Orchestra",
+                        Action = "Artist",
+                        IdRouteAttribute = "ar304256"
+                    }
                 }
             };
         }

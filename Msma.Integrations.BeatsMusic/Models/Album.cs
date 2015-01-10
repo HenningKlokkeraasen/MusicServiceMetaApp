@@ -16,16 +16,21 @@ namespace Msma.Integrations.BeatsMusic.Models
         public string ReleaseDate { get; set; }
 
         [DataMember]
-        public AlbumRefs Refs { get; set; }
-        
+        public RefsForAlbum Refs { get; set; }
+
+        [DataMember(Name = "release_format")]
+        public string ReleaseFormat { get; set; }
+
         public IEnumerable<ArtistInRefs> Artists
         {
             get { return Refs.Artists; }
         }
 
-        public IEnumerable<Track> Tracks
-        {
-            get { return Refs.Tracks; }
-        }
+        public string ImageUrl { get; set; }
+
+        //public IEnumerable<Track> Tracks
+        //{
+        //    get { return Refs.Tracks; }
+        //}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Msma.Domain.Dtos;
 using Msma.Domain.Enums;
@@ -25,12 +26,16 @@ namespace Msma.Orchestration.Integrations
             var artist = Mapper.Map<Artist>(unmappedArtist);
 
             var unmappedAlbums = _gateway.FetchAlbums(id);
-            var albums = Mapper.Map<IEnumerable<Album>>(unmappedAlbums);
+            var albums = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "LP"));
+            var singles = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "EP" || a.ReleaseFormat == "Single"));
+            var compilations = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "Compilation"));
 
             var dto = new ArtistDto
             {
                 Artist = artist,
-                Albums = albums
+                Albums = albums,
+                Singles = singles,
+                Compilations = compilations
             };
 
             return SetSoruce(dto, Source);
@@ -39,8 +44,9 @@ namespace Msma.Orchestration.Integrations
         public AlbumDto GetAlbum(string id)
         {
             var unmappedAlbum = _gateway.FetchAlbum(id);
+            unmappedAlbum.ImageUrl = _gateway.FetchAlbumImageUrl(id);
             var album = Mapper.Map<Album>(unmappedAlbum);
-            var tracks = Mapper.Map<IEnumerable<Track>>(unmappedAlbum.Tracks);
+            var tracks = Mapper.Map<IEnumerable<Track>>(_gateway.FetchTracks(id));
 
             var dto = new AlbumDto
             {
@@ -53,5 +59,20 @@ namespace Msma.Orchestration.Integrations
 
             return SetSoruce(dto, Source);
         }
+
+        public TrackDto GetTrack(string id)
+        {
+            var unmappedTrack = _gateway.FetchTrack(id);
+            var track = Mapper.Map<Track>(unmappedTrack);
+            track.Album.ImageUrl = _gateway.FetchAlbumImageUrl(unmappedTrack.Album.Id);
+
+            var dto = new TrackDto
+            {
+                Track = track
+            };
+
+            return SetSoruce(dto, Source);
+        }
+
     }
 }

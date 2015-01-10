@@ -11,7 +11,7 @@
 <p>
     From album:<br />
     <a href="/@Model.Source/Album/@Model.Track.Album.Id">
-        <img src="@Model.Track.Album.ImageUrl" alt="" />
+        @{ Html.RenderPartial("DisplayTemplates/AlbumCover", new Tuple<string, string>(Model.Track.Album.ImageUrl, string.Empty));}
         <br />
         @Model.Track.Album.Name
     </a>

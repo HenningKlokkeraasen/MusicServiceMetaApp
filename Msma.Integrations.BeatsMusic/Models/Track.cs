@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Msma.Integrations.BeatsMusic.Models
@@ -10,27 +9,31 @@ namespace Msma.Integrations.BeatsMusic.Models
         [DataMember]
         public string Id { get; set; }
 
-        [DataMember(Name = "display")]
+        [DataMember(Name = "title")]
         public string Name { get; set; }
 
-        //[DataMember(Name = "track_number")]
-        //public int TrackNumber { get; set; }
+        [DataMember(Name = "track_position")]
+        public int TrackNumber { get; set; }
 
-        //[DataMember(Name = "duration_ms")]
-        //public int Duration { get; set; }
+        [DataMember(Name = "duration")]
+        public int Duration { get; set; }
 
         [DataMember]
-        public IEnumerable<Artist> Artists { get; set; }
+        public RefsForTrack Refs { get; set; }
 
-        //[DataMember(Name="preview_url")]
-        //public string PreviewUrl { get; set; }
+        public IEnumerable<ArtistInRefs> Artists
+        {
+            get { return Refs.Artists; }
+        }
 
-        //[DataMember]
-        //public Album Album { get; set; }
+        public AlbumInRefs Album
+        {
+            get { return Refs.Album; }
+        }
 
-        //public int DurationInSeconds 
-        //{
-        //    get { return (int)Math.Round(Duration/1000d); }
-        //}
+        public int DurationInSeconds
+        {
+            get { return Duration; }
+        }
     }
 }

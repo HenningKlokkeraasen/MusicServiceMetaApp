@@ -32,5 +32,14 @@ namespace MusicServiceMetaApp.Web.Controllers
             var viewModel = _orchestrator.GetAlbum(id);
             return View(viewModel);
         }
+
+        public ActionResult Track(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return View("Error");
+
+            var viewModel = _orchestrator.GetTrack(id);
+            return View(viewModel);
+        }
     }
 }

@@ -14,7 +14,11 @@
 <h3>Albums</h3>
 @{ Html.RenderPartial("DisplayTemplates/BunchOfAlbums", Model.Albums); }
 
-<h3>Singles</h3>
+<h3>Compilations</h3>
+@{ Html.RenderPartial("DisplayTemplates/BunchOfAlbums", Model.Compilations); }
+
+
+<h3>Singles and EPs</h3>
 @{ Html.RenderPartial("DisplayTemplates/BunchOfAlbums", Model.Singles); }
 
 <h3>Appears On</h3>

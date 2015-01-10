@@ -39,7 +39,27 @@ namespace Msma.Integrations.BeatsMusic
 
         public Album FetchAlbum(string albumId)
         {
-            return FetchBeatsMusicData<GetAlbumWrapper>("albums", albumId).Album;
+            var queryStringParameters = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("refs", "artists")//TODO add label
+            };
+
+            return FetchBeatsMusicData<GetAlbumWrapper>("albums", albumId, string.Empty, queryStringParameters).Album;
+        }
+
+        public string FetchAlbumImageUrl(string albumId)
+        {
+            return UriBase + "albums" + "/" + albumId + "/images/default" + "?client_id=" + _apiToken;
+        }
+
+        public IEnumerable<Track> FetchTracks(string albumId)
+        {
+            return FetchBeatsMusicData<GetTracksWrapper>("albums", albumId, "/tracks").Tracks;
+        }
+
+        public Track FetchTrack(string trackId)
+        {
+            return FetchBeatsMusicData<GetTrackWrapper>("tracks", trackId).Track;
         }
 
         private static T FetchBeatsMusicData<T>(string apiMethod, string id, string sub = "", IEnumerable<KeyValuePair<string, string>> queryStringParameters = null)

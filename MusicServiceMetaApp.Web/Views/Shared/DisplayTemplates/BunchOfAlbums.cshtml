@@ -5,6 +5,14 @@
     var source = ViewBag.Source;
 }
 
+@{
+    if (Model == null || !Model.Any())
+    {
+        @:[None]
+        return;
+    }
+}
+
 <div class="artistAlbumContainer">
     @foreach (Album a in Model)
     {

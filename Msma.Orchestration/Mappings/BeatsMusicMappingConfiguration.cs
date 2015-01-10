@@ -9,6 +9,7 @@ namespace Msma.Orchestration.Mappings
             Mapper.CreateMap<Msma.Integrations.BeatsMusic.Models.Artist, Domain.Models.Artist>();
             Mapper.CreateMap<Msma.Integrations.BeatsMusic.Models.ArtistInRefs, Domain.Models.Artist>();
             Mapper.CreateMap<Msma.Integrations.BeatsMusic.Models.Album, Domain.Models.Album>();
+            Mapper.CreateMap<Msma.Integrations.BeatsMusic.Models.AlbumInRefs, Domain.Models.Album>();
             Mapper.CreateMap<Msma.Integrations.BeatsMusic.Models.Track, Domain.Models.Track>();
         }
     }
