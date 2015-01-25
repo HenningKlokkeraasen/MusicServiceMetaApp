@@ -15,7 +15,7 @@ Requirements
 * .NET Framework 4.5
 * ASP.NET MVC with Razor
 * Developer keys for 
-..* Spotify API
-..* WiMP API
-..* BeatsMusic API
-..* Last.FM API
+	* Spotify API
+	* WiMP API
+	* BeatsMusic API
+	* Last.FM API
