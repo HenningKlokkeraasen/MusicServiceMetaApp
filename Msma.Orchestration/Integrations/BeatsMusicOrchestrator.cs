@@ -35,13 +35,17 @@ namespace Msma.Orchestration.Integrations
             var singles = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "EP" || a.ReleaseFormat == "Single"));
             var compilations = Mapper.Map<IEnumerable<Album>>(unmappedAlbums.Where(a => a.ReleaseFormat == "Compilation"));
 
+            var unmappedAppearsOn = _gateway.FetchAppearsOnAlbums(id, unmappedAlbums.Select(a => a.Id));
+            unmappedAppearsOn.Each(a => a.ImageUrl = _gateway.FetchAlbumImageUrl(a.Id));
+            var appearsOn = Mapper.Map<IEnumerable<Album>>(unmappedAppearsOn);
+
             var dto = new ArtistDto
             {
                 Artist = artist,
                 Albums = albums,
                 Singles = singles,
                 Compilations = compilations,
-                //AppearsOn = ?,
+                AppearsOn = appearsOn,
                 TopAlbums = topAlbums
             };
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Msma.Integrations.BeatsMusic.Models;
 using Msma.Integrations.Common;
 
@@ -66,6 +67,39 @@ namespace Msma.Integrations.BeatsMusic
         public IEnumerable<Track> FetchTracks(string albumId)
         {
             return FetchBeatsMusicData<GetTracksWrapper>("albums", albumId, "/tracks").Tracks;
+        }
+
+        public IEnumerable<Track> FetchTracksForArtist(string artistId)
+        {
+            return FetchBeatsMusicData<GetTracksWrapper>("artists", artistId, "/tracks").Tracks;
+        }
+
+        public IEnumerable<Album> FetchAppearsOnAlbums(string artistId, IEnumerable<string> artistsOwnAlbumIds)
+        {
+            var queryStringParameters = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("limit", "200")
+            };
+
+            var tracks = FetchBeatsMusicData<GetTracksWrapper>("artists", artistId, "/tracks", queryStringParameters).Tracks;
+            //TODO recurse here for paging if count > limit, (add offset parameter)
+
+            var appearsOnTracks = tracks.Where(t => !artistsOwnAlbumIds.Contains(t.Album.Id));
+            var albums = new List<Album>();
+            foreach (var track in appearsOnTracks)
+            {
+                var album = new Album
+                {
+                    Id = track.Album.Id,
+                    Name = track.Album.Name,
+                    Refs = new RefsForAlbum
+                    {
+                        Artists = new List<ArtistInRefs>()
+                    }
+                };
+                albums.Add(album);
+            }
+            return albums;
         }
 
         public Track FetchTrack(string trackId)
