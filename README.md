@@ -1,4 +1,4 @@
-MusicServiceMetaApp
+﻿MusicServiceMetaApp
 ===================
 Source code for the Music Service Meta App project. 
 
@@ -12,10 +12,10 @@ The live site is running at http://musicservicemetaapp.azurewebsites.net/
 
 Requirements
 ------------
- - .NET Framework 4.5
- - ASP.NET MVC with Razor
- - Developer keys for 
- -- Spotify API
- -- WiMP API
- -- BeatsMusic API
- -- Last.FM API
+* .NET Framework 4.5
+* ASP.NET MVC with Razor
+* Developer keys for 
+..* Spotify API
+..* WiMP API
+..* BeatsMusic API
+..* Last.FM API
